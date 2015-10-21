@@ -1,6 +1,3 @@
-// 20151020133347
-// https://raw.githubusercontent.com/Azure/azure-quickstart-templates/9ad72f1f5f0008c14311be79eee036b871712394/101-simple-windows-vm/azuredeploy.json
-
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
