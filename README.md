@@ -23,7 +23,7 @@ Must consist of all lowercase letters and numbers (size: 3-24)
 Must conform to the following regular expresssion:  ^[a-z][a-z0-9-]{1,61}[a-z0-9]$
 
 ##### 5- VMs Admin Password: 
-The supplied password must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character.
+Must not containt the Admin Username. The supplied password must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character.
 
 ##### 6- Redis cache name: 
 It can only contain letters, numbers and hyphens. The first and last characters must each be a letter or a number. 
