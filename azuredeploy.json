@@ -67,6 +67,7 @@
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",
     "OSDiskName": "WebCADAppOSdisk",
+    "OSDisk2Name": "WebCadDbOSdisk",
     "nicName": "WebCADAppDisk",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
@@ -225,7 +226,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+              "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDisk2Name'),'.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
