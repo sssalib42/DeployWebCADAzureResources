@@ -20,30 +20,6 @@
         "description": "Password for the Virtual Machines."
       }
     },
-    "location": {
-      "type": "string",
-      "allowedValues": [
-        "East Asia",
-        "Southeast Asia",
-        "Central US",
-        "East US",
-        "East US 2",
-        "West US",
-        "North Central US",
-        "South Central US",
-        "North Europe",
-        "West Europe",
-        "Japan West",
-        "Japan East",
-        "Brazil South",
-        "Australia East",
-        "Australia Southeast",
-        "Central India",
-        "West India",
-        "South India"
-      ],
-      "defaultValue": "South Central US"
-    },
     "dnsNameForPublicIP": {
       "type": "string",
       "metadata": {
@@ -59,7 +35,7 @@
     "WebCADRedisSKUFamily": "C",
     "WebCADRedisSKUCapacity": "0",
     "WebCADRedisRedisVersion": "2.8",
-    "location": "[parameters('location')]",
+    "location": "[resourceGroup().location]",
     "vmName": "WebCadApp",
     "vm2Name": "WebCadDB",
     "vmSize": "Standard_D1",
