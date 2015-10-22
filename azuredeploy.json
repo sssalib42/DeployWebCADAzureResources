@@ -244,7 +244,7 @@
       }
     },
     {
-      "name": "WebCadReddisCache",
+      "name": "WebCadReddistest",
       "type": "Microsoft.Cache/Redis",
       "location": "[variables('location')]",
       "apiVersion": "2014-04-01-preview",
