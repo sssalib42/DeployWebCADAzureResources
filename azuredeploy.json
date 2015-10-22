@@ -2,6 +2,18 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "newStorageAccountName1": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique DNS Name for the Storage Account where the app Virtual Machine's disks will be placed."
+      }
+    },
+    "newStorageAccountName2": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique DNS Name for the Storage Account where the db Virtual Machine's disks will be placed."
+      }
+    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -63,7 +75,7 @@
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "name": "variables('vm1StorageName')",
+      "name": "parameters('newStorageAccountName1')",
       "apiVersion": "2015-05-01-preview",
       "location": "[variables('location')]",
       "properties": {
@@ -72,7 +84,7 @@
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('vm2StorageName')]",
+      "name": "[parameters('newStorageAccountName2')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[variables('location')]",
       "properties": {
@@ -179,7 +191,7 @@
     {
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('vm1StorageName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName1'))]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
       ],
       "location": "[variables('location')]",
@@ -203,7 +215,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://',variables('vm1StorageName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+              "uri": "[concat('http://',parameters('newStorageAccountName1'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -219,7 +231,7 @@
         "diagnosticsProfile": {
           "bootDiagnostics": {
             "enabled": "true",
-            "storageUri": "[concat('http://',variables('vm1StorageName'),'.blob.core.windows.net')]"
+            "storageUri": "[concat('http://',parameters('newStorageAccountName1'),'.blob.core.windows.net')]"
           }
         }
       },
@@ -231,7 +243,7 @@
       "name": "[variables('vm2Name')]",
       "location": "[variables('location')]",
       "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('vm2StorageName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName2'))]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('nic2Name'))]"
       ],
       "properties": {
@@ -253,7 +265,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://',variables('vm2StorageName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDisk2Name'),'.vhd')]"
+              "uri": "[concat('http://',parameters('newStorageAccountName2'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDisk2Name'),'.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -269,7 +281,7 @@
         "diagnosticsProfile": {
           "bootDiagnostics": {
             "enabled": "true",
-            "storageUri": "[concat('http://',variables('vm2StorageName'),'.blob.core.windows.net')]"
+            "storageUri": "[concat('http://',parameters('newStorageAccountName2'),'.blob.core.windows.net')]"
           }
         }
       }
