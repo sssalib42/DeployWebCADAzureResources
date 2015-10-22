@@ -4,7 +4,13 @@ A testing repository of deployment of the a demo WebCAD resource group on Azure 
 #### Click on the Deploy to Azure button below, and please be sure to use the following naming convention:
 
 1- Resource Group name: Can only include alphanumeric characters, periods, underscores, hyphens and parenthesis and cannot end in a period. (No spaces)
-##### Please note that in order to choose a custom Azure Datacenter hosting LOCATION, you must first create a new (empty) resource group <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/">manualy</a>, then later choose that "existing" resource group name when prompted. Otherwise, the Azure portal will automatically choose your hosting location if you create a new resrouce group during this WebCAD deployment plan.
+##### Please note that in order to choose a custom Azure Datacenter hosting LOCATION, you must first create a new (empty) resource group <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/">manualy</a>, then later choose that "existing" resource group name when prompted. 
+
+<img width="645" alt="capture1" src="https://cloud.githubusercontent.com/assets/10172212/10670799/ef7e7808-78ac-11e5-8d5d-b58917629fb4.PNG"/> 
+
+Otherwise, the Azure portal will automatically choose your hosting location if you create a new resrouce group during this WebCAD deployment plan.
+
+<img width="645" alt="capture2" src="https://cloud.githubusercontent.com/assets/10172212/10670868/4938eb12-78ad-11e5-8635-edd6cc943fe3.PNG">
 
 2- Domain name: Must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$.
 
