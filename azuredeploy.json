@@ -2,18 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "newAppStorageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Unique DNS Name for the Storage Account where the app Virtual Machine's disks will be placed."
-      }
-    },
-    "newDatabaseStorageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Unique DNS Name for the Storage Account where the db Virtual Machine's disks will be placed."
-      }
-    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -40,6 +28,52 @@
     },
       "redisName": {
           "type": "string"
+      },
+      "newAppStorageAccountName": {
+          "type": "string"
+      },
+      "newAppStorageAccountType": {
+          "type": "string",
+          "defaultValue": "Standard_LRS",
+          "allowedValues": [
+              "Standard_LRS",
+              "Standard_GRS",
+              "Standard_ZRS"
+          ]
+      },
+      "newAppStorageAccountLocation": {
+          "type": "string",
+          "defaultValue": "West US",
+          "allowedValues": [
+              "East US",
+              "West US",
+              "West Europe",
+              "East Asia",
+              "South East Asia"
+          ]
+      },
+      "newDatabaseStorageAccountName": {
+          "type": "string"
+      },
+      "newDatabaseStorageAccountType": {
+          "type": "string",
+          "defaultValue": "Standard_LRS",
+          "allowedValues": [
+              "Standard_LRS",
+              "Standard_GRS",
+              "Standard_ZRS"
+          ]
+      },
+      "newDatabaseStorageAccountLocation": {
+          "type": "string",
+          "defaultValue": "West US",
+          "allowedValues": [
+              "East US",
+              "West US",
+              "West Europe",
+              "East Asia",
+              "South East Asia"
+          ]
       }
   },
   "variables": {
@@ -73,24 +107,6 @@
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
   },
   "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "parameters('newAppStorageAccountName')",
-      "apiVersion": "2015-05-01-preview",
-      "location": "[variables('location')]",
-      "properties": {
-        "accountType": "[variables('storageAccountType')]"
-      }
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('newDatabaseStorageAccountName')]",
-      "apiVersion": "2015-05-01-preview",
-      "location": "[variables('location')]",
-      "properties": {
-        "accountType": "[variables('storageAccountType')]"
-      }
-    },
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -303,6 +319,32 @@
         },
         "redisVersion": "[variables('WebCADRedisRedisVersion')]"
       }
-    }
+    },
+      {
+          "name": "[parameters('newAppStorageAccountName')]",
+          "type": "Microsoft.Storage/storageAccounts",
+          "location": "[parameters('newAppStorageAccountLocation')]",
+          "apiVersion": "2015-05-01-preview",
+          "dependsOn": [ ],
+          "tags": {
+              "displayName": "newAppStorageAccount"
+          },
+          "properties": {
+              "accountType": "[parameters('newAppStorageAccountType')]"
+          }
+      },
+      {
+          "name": "[parameters('newDatabaseStorageAccountName')]",
+          "type": "Microsoft.Storage/storageAccounts",
+          "location": "[parameters('newDatabaseStorageAccountLocation')]",
+          "apiVersion": "2015-05-01-preview",
+          "dependsOn": [ ],
+          "tags": {
+              "displayName": "newDatabaseStorageAccount"
+          },
+          "properties": {
+              "accountType": "[parameters('newDatabaseStorageAccountType')]"
+          }
+      }
   ]
 }
