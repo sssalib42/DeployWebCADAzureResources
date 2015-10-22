@@ -1,7 +1,8 @@
 # DeployWebCADAzureResources
 A testing repository of deployment of the a demo WebCAD resource group on Azure Resource Manager. The resrource group will include two VMs and their configurations.
 
-Please be sure to use the following naming convention:
+Click on the Deploy to Azure button below, and please be sure to use the following naming convention:
+
 1- Resource Group name: Can only include alphanumeric characters, periods, underscores, hyphens and parenthesis and cannot end in a period. (No spaces)
 
 2- Domain name: Must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$.
