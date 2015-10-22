@@ -13,7 +13,7 @@ Can only include alphanumeric characters, periods, underscores, hyphens and pare
 
 <img width="645" alt="capture2" src="https://cloud.githubusercontent.com/assets/10172212/10670868/4938eb12-78ad-11e5-8635-edd6cc943fe3.PNG"/>
 
-##### 2- Domain name: 
+##### 2- Dns public ip name: 
 Must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$.
 
 ##### 3- Storage Account name: 
