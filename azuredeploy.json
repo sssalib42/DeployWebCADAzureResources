@@ -4,6 +4,7 @@
   "parameters": {
     "virtualMachinesAdminUsername": {
       "type": "string",
+      "defaultValue": "webcadAdmin",
       "metadata": {
         "description": "Username for the Virtual Machines."
       }
@@ -27,13 +28,16 @@
       }
     },
       "redisName": {
-          "type": "string"
+        "type": "string",
+        "defaultValue": "webcadrediscache"
       },
       "newAppStorageAccountName": {
-          "type": "string"
+        "type": "string",
+        "defaultValue": "webcadapp"
       },
       "newDatabaseStorageAccountName": {
-          "type": "string"
+        "type": "string",
+        "defaultValue": "webcaddatabase"
       }
   },
   "variables": {
