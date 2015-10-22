@@ -1,7 +1,9 @@
 # DeployWebCADAzureResources
 A testing repository of deployment of the a demo WebCAD resource group on Azure Resource Manager. The resrource group will include two VMs and their configurations.
 
-#### Click on the Deploy to Azure button below, and please be sure to use the following naming convention:
+#### Click on the <a href="https://deploy.azure.com/?repository=https://github.com/sssalib42/DeployWebCADAzureResources#/form/setup" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a> button, but first please be sure to use the following naming convention:
 
 ##### 1- Resource Group name: 
 Can only include alphanumeric characters, periods, underscores, hyphens and parenthesis and cannot end in a period. (No spaces)
@@ -28,6 +30,3 @@ The supplied password must be between 8-123 characters long and must satisfy at 
 ##### 6- Redis cache name: 
 It can only contain letters, numbers and hyphens. The first and last characters must each be a letter or a number. 
 
-<a href="https://deploy.azure.com/?repository=https://github.com/sssalib42/DeployWebCADAzureResources#/form/setup" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
