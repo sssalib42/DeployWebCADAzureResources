@@ -17,13 +17,13 @@
     "dnsNameForPublicIP1": {
       "type": "string",
       "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+        "description": "Unique DNS Name for the Public IP used to access the app Virtual Machine."
       }
     },
     "dnsNameForPublicIP2": {
       "type": "string",
       "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+        "description": "Unique DNS Name for the Public IP used to access the BD Virtual Machine."
       }
     },
       "redisName": {
@@ -50,8 +50,8 @@
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "storageAccountType": "Standard_LRS",
-    "vm1StorageName": "appVMStorage",
-    "vm2StorageName": "DbVMStorage",
+    "vm1StorageName": "appstorage",
+    "vm2StorageName": "dbstorage",
     "publicIPAddress1Name": "WebCADAppPublicIP",
     "publicIPAddress2Name": "WebCadDbPublicIP",
     "publicIPAddressType": "Dynamic",
