@@ -49,7 +49,10 @@
       "metadata": {
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
-    }
+    },
+      "redisName": {
+          "type": "string"
+      }
   },
   "variables": {
     "WebCADRedisSKUName": "Basic",
@@ -244,7 +247,7 @@
       }
     },
     {
-      "name": "WebCadReddistest",
+      "name": "[parameters('redisName')]",
       "type": "Microsoft.Cache/Redis",
       "location": "[variables('location')]",
       "apiVersion": "2014-04-01-preview",
