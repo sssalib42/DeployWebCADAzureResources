@@ -281,7 +281,7 @@
       {
           "name": "[parameters('newAppStorageAccountName')]",
           "type": "Microsoft.Storage/storageAccounts",
-          "location": "[variables('locatoin')]",
+          "location": "[variables('location')]",
           "apiVersion": "2015-05-01-preview",
           "dependsOn": [ ],
           "tags": {
