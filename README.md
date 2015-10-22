@@ -1,7 +1,7 @@
 # DeployWebCADAzureResources
 A testing repository of deployment of the a demo WebCAD resource group on Azure Resource Manager. The resrource group will include two VMs and their configurations.
 
-#### Click on the <a href="https://deploy.azure.com/?repository=https://github.com/sssalib42/DeployWebCADAzureResources#/form/setup" target="_blank"><img width="110" src="http://azuredeploy.net/deploybutton.png"/></a> button, but first please be sure to use the following naming convention:
+#### Click on the <a href="https://deploy.azure.com/?repository=https://github.com/sssalib42/DeployWebCADAzureResources#/form/setup" target="_blank"><img width="130" src="http://azuredeploy.net/deploybutton.png"/></a> button, but first please be sure to use the following naming convention:
 
 ##### 1- Resource Group name: 
 Can only include alphanumeric characters, periods, underscores, hyphens and parenthesis and cannot end in a period. (No spaces)
