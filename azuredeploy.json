@@ -32,48 +32,8 @@
       "newAppStorageAccountName": {
           "type": "string"
       },
-      "newAppStorageAccountType": {
-          "type": "string",
-          "defaultValue": "Standard_LRS",
-          "allowedValues": [
-              "Standard_LRS",
-              "Standard_GRS",
-              "Standard_ZRS"
-          ]
-      },
-      "newAppStorageAccountLocation": {
-          "type": "string",
-          "defaultValue": "West US",
-          "allowedValues": [
-              "East US",
-              "West US",
-              "West Europe",
-              "East Asia",
-              "South East Asia"
-          ]
-      },
       "newDatabaseStorageAccountName": {
           "type": "string"
-      },
-      "newDatabaseStorageAccountType": {
-          "type": "string",
-          "defaultValue": "Standard_LRS",
-          "allowedValues": [
-              "Standard_LRS",
-              "Standard_GRS",
-              "Standard_ZRS"
-          ]
-      },
-      "newDatabaseStorageAccountLocation": {
-          "type": "string",
-          "defaultValue": "West US",
-          "allowedValues": [
-              "East US",
-              "West US",
-              "West Europe",
-              "East Asia",
-              "South East Asia"
-          ]
       }
   },
   "variables": {
@@ -96,8 +56,6 @@
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "storageAccountType": "Standard_LRS",
-    "vm1StorageName": "appstorage",
-    "vm2StorageName": "dbstorage",
     "publicIPAddress1Name": "WebCADAppPublicIP",
     "publicIPAddress2Name": "WebCadDbPublicIP",
     "publicIPAddressType": "Dynamic",
@@ -323,27 +281,27 @@
       {
           "name": "[parameters('newAppStorageAccountName')]",
           "type": "Microsoft.Storage/storageAccounts",
-          "location": "[parameters('newAppStorageAccountLocation')]",
+          "location": "[variables('locatoin')]",
           "apiVersion": "2015-05-01-preview",
           "dependsOn": [ ],
           "tags": {
               "displayName": "newAppStorageAccount"
           },
           "properties": {
-              "accountType": "[parameters('newAppStorageAccountType')]"
+              "accountType": "[variables('storageAccountType')]"
           }
       },
       {
           "name": "[parameters('newDatabaseStorageAccountName')]",
           "type": "Microsoft.Storage/storageAccounts",
-          "location": "[parameters('newDatabaseStorageAccountLocation')]",
+          "location": "[variables('location')]",
           "apiVersion": "2015-05-01-preview",
           "dependsOn": [ ],
           "tags": {
               "displayName": "newDatabaseStorageAccount"
           },
           "properties": {
-              "accountType": "[parameters('newDatabaseStorageAccountType')]"
+              "accountType": "[variables('storageAccountType')]"
           }
       }
   ]
