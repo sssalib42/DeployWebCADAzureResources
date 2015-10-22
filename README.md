@@ -1,11 +1,11 @@
 # DeployWebCADAzureResources
 A testing repository of deployment of the a demo WebCAD resource group on Azure Resource Manager. The resrource group will include two VMs and their configurations.
 
-#### Click on the <a href="https://deploy.azure.com/?repository=https://github.com/sssalib42/DeployWebCADAzureResources#/form/setup" target="_blank"><img width="130" src="http://azuredeploy.net/deploybutton.png"/></a> button, but first please be sure to use the following naming convention:
+#### Click on the <a href="https://deploy.azure.com/?repository=https://github.com/sssalib42/DeployWebCADAzureResources#/form/setup" target="_blank"><img width="130" src="http://azuredeploy.net/deploybutton.png"/></a> button, and please be sure to use the following naming convention:
 
 ##### 1- Resource Group name: 
 Can only include alphanumeric characters, periods, underscores, hyphens and parenthesis and cannot end in a period. (No spaces)
-###### Please note that in order to choose a custom Azure Datacenter hosting LOCATION, you must first create a new (empty) resource group <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/">manualy</a>, then later choose that "existing" resource group name when prompted. 
+###### Please note that in order to choose a custom Azure Datacenter hosting LOCATION, you must first create a new resource group by following the first step in this <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/">Resource Group Portal article</a>, then later choose that "existing" resource group name when prompted. 
 
 <img width="645" alt="capture1" src="https://cloud.githubusercontent.com/assets/10172212/10670799/ef7e7808-78ac-11e5-8d5d-b58917629fb4.PNG"/> 
 
