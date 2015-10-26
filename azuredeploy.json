@@ -50,8 +50,11 @@
     "vm2Name": "WebCadDB",
     "vmSize": "Standard_D1",
     "windowsOSVersion": "2012-R2-Datacenter",
+    "sqlWindowsOSVersion": "Enterprise",
     "imagePublisher": "MicrosoftWindowsServer",
+    "sqlImagePublisher": "MicrosoftSQLServer",
     "imageOffer": "WindowsServer",
+    "sqlImageOffer": "SQL2014-WS2012R2",
     "OSDiskName": "WebCADAppOSdisk",
     "OSDisk2Name": "WebCadDbOSdisk",
     "nicName": "WebCADAppDisk",
@@ -235,9 +238,9 @@
         },
         "storageProfile": {
           "imageReference": {
-            "publisher": "[variables('imagePublisher')]",
-            "offer": "[variables('imageOffer')]",
-            "sku": "[variables('windowsOSVersion')]",
+            "publisher": "[variables('sqlImagePublisher')]",
+            "offer": "[variables('sqlImageOffer')]",
+            "sku": "[variables('sqlWindowsOSVersion')]",
             "version": "latest"
           },
           "osDisk": {

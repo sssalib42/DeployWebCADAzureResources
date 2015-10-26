@@ -30,7 +30,7 @@
     <Content Include="azuredeploy.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AzureVMsDeploy.ps1" />
+    <Compile Include="AzureDeploy.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

@@ -18,7 +18,7 @@ New-AzureResourceGroup -Name $resourceGroupName -Location $location
 
 $Deployment = @{
 	Name = 'WebCAD_Deployment';
-	ResourceGroupName = 'WebCAD';
+	ResourceGroupName = 'WebCADps';
 	Mode = 'Complete';
 	TemplateFile = "$PSScriptRoot\AzureVMsDeploy.json";
 	TemplateParameterObject = @{
