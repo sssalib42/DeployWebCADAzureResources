@@ -323,7 +323,7 @@
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
       ],
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
       "properties": {
         "publisher": "PuppetLabs",
