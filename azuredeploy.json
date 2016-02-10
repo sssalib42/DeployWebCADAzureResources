@@ -27,18 +27,24 @@
         "description": "Unique DNS Name for the Public IP used to access the BD Virtual Machine."
       }
     },
-      "redisName": {
-        "type": "string",
-        "defaultValue": "webcadrediscache"
-      },
-      "newAppStorageAccountName": {
-        "type": "string",
-        "defaultValue": "webcadapp"
-      },
-      "newDatabaseStorageAccountName": {
-        "type": "string",
-        "defaultValue": "webcaddatabase"
+    "redisName": {
+      "type": "string",
+      "defaultValue": "webcadrediscache"
+    },
+    "newAppStorageAccountName": {
+      "type": "string",
+      "defaultValue": "webcadapp"
+    },
+    "newDatabaseStorageAccountName": {
+      "type": "string",
+      "defaultValue": "webcaddatabase"
+    },
+    "puppet_master_server_url": {
+      "type": "string",
+      "metadata": {
+        "description": "Puppet Master URL"
       }
+    }
   },
   "variables": {
     "WebCADRedisSKUName": "Basic",
@@ -65,6 +71,7 @@
     "storageAccountType": "Standard_LRS",
     "publicIPAddress1Name": "WebCADAppPublicIP",
     "publicIPAddress2Name": "WebCadDbPublicIP",
+    "vmExtensionName": "PuppetEnterpriseAgent",
     "publicIPAddressType": "Dynamic",
     "vmStorageAccountContainerName": "vhds",
     "virtualNetworkName": "WebCADVertualNetwork",
@@ -285,31 +292,53 @@
         "redisVersion": "[variables('WebCADRedisRedisVersion')]"
       }
     },
-      {
-          "name": "[parameters('newAppStorageAccountName')]",
-          "type": "Microsoft.Storage/storageAccounts",
-          "location": "[variables('location')]",
-          "apiVersion": "2015-05-01-preview",
-          "dependsOn": [ ],
-          "tags": {
-              "displayName": "newAppStorageAccount"
-          },
-          "properties": {
-              "accountType": "[variables('storageAccountType')]"
+    {
+        "name": "[parameters('newAppStorageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "location": "[variables('location')]",
+        "apiVersion": "2015-05-01-preview",
+        "dependsOn": [ ],
+        "tags": {
+            "displayName": "newAppStorageAccount"
+        },
+        "properties": {
+            "accountType": "[variables('storageAccountType')]"
+        }
+    },
+    {
+        "name": "[parameters('newDatabaseStorageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "location": "[variables('location')]",
+        "apiVersion": "2015-05-01-preview",
+        "dependsOn": [ ],
+        "tags": {
+            "displayName": "newDatabaseStorageAccount"
+        },
+        "properties": {
+            "accountType": "[variables('storageAccountType')]"
+        }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+      ],
+      "location": "[parameters('location')]",
+      "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
+      "properties": {
+        "publisher": "PuppetLabs",
+        "type": "PuppetEnterpriseAgent",
+        "typeHandlerVersion": "3.2",
+        "settings": {
+          "puppet_master_server": "[parameters('puppet_master_server_url')]"
+        },
+        "protectedSettings": {
+          "placeHolder": {
+            "placeHolder": "placeHolder"
           }
+        }
       },
-      {
-          "name": "[parameters('newDatabaseStorageAccountName')]",
-          "type": "Microsoft.Storage/storageAccounts",
-          "location": "[variables('location')]",
-          "apiVersion": "2015-05-01-preview",
-          "dependsOn": [ ],
-          "tags": {
-              "displayName": "newDatabaseStorageAccount"
-          },
-          "properties": {
-              "accountType": "[variables('storageAccountType')]"
-          }
-      }
+      "type": "Microsoft.Compute/virtualMachines/extensions"
+    }
   ]
 }
